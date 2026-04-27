@@ -1,10 +1,10 @@
 .env
-js/config.js
 node_modules/
 *.log
 .DS_Store
 .tmp/
 credentials.json
-token.json.mcp.json
+token.json
+.mcp.json
 n8n-skills/
 .claude/
