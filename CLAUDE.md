@@ -117,6 +117,44 @@ If n8n is running locally (default port `5678`):
 
 When testing across devices, expose n8n via a tunnel (e.g., ngrok) so the frontend can reach it.
 
+## Deployment
+
+### GitHub
+
+Push the repository to GitHub:
+
+```bash
+git init
+git add .
+git commit -m "Initial commit: n8n dashboard"
+git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
+git push -u origin main
+```
+
+Ensure `.env` and `js/config.js` are listed in `.gitignore`.
+
+### Vercel
+
+Deploy the frontend to Vercel:
+
+1. Import the project from GitHub in the Vercel dashboard.
+2. **Framework Preset:** Choose `Other` (static).
+3. **Build Command:** Leave empty (no build step for vanilla HTML/CSS/JS).
+4. **Output Directory:** Set to `.` (root), or leave as default if it points to root.
+5. **Environment Variables:** None needed for the frontend (all config is in `js/config.js`).
+6. Click **Deploy**.
+
+After deployment, update `js/config.js` to point to the public n8n webhook URL instead of `localhost`, then push again:
+
+```javascript
+// js/config.js
+window.CONFIG = {
+  STATS_WEBHOOK_URL: 'https://your-n8n-domain.com/webhook/sumy-stats'
+};
+```
+
+Vercel will auto-redeploy on every push to the default branch.
+
 ## Resources
 
 - [n8n-mcp](https://github.com/czlonkowski/n8n-mcp): MCP server for AI-powered n8n workflow management.
