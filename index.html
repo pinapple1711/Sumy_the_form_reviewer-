@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sumy Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Sumy Review Dashboard</h1>
+      <p class="subtitle">Real-time review analytics</p>
+    </header>
+
+    <div class="stats-grid">
+      <div class="stat-card total">
+        <div class="stat-icon">📋</div>
+        <div class="stat-value" id="total-count">-</div>
+        <div class="stat-label">Total Reviews</div>
+      </div>
+      <div class="stat-card good">
+        <div class="stat-icon">👍</div>
+        <div class="stat-value" id="good-count">-</div>
+        <div class="stat-label">Good Reviews</div>
+      </div>
+      <div class="stat-card bad">
+        <div class="stat-icon">👎</div>
+        <div class="stat-value" id="bad-count">-</div>
+        <div class="stat-label">Bad Reviews</div>
+      </div>
+    </div>
+
+    <div class="chart-section">
+      <h2>Review Breakdown</h2>
+      <div class="chart-container">
+        <canvas id="reviewChart"></canvas>
+      </div>
+    </div>
+
+    <div class="last-updated">
+      Last updated: <span id="last-updated">-</span>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
